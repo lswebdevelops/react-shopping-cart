@@ -2,7 +2,7 @@ import React from "react";
 
 const Stocks = () => {
     return(
-        <h1>Stocks</h1>
+        <h1>Stocks page</h1>
     )
 }
 export default Stocks;
