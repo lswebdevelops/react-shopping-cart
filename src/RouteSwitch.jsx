@@ -20,8 +20,7 @@ const RouteSwitch = () => {
         <NavLink className="bonds" to={"/bonds"}>Bonds</NavLink>
         <NavLink className="cart" to={"/cart"}>  <FaCartArrowDown /></NavLink>
       </nav>
-      
-      {/* src={require(`../images/${image}`)} */}
+  
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/portfolio" element={<Portfolio />} />
@@ -29,8 +28,6 @@ const RouteSwitch = () => {
         <Route path="/reits" element={<Reits />} />
         <Route path="/bonds" element={<Bonds />} />
         <Route path="/cart" element={<Cart />} />
-
-
         
       </Routes>
     </BrowserRouter>
