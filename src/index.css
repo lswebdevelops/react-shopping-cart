@@ -1,34 +1,42 @@
+:root {
+  --main-backgrouncolor: rgb(12,89,104);
+}
 * {
   padding: 0;
   margin: 0;
   font-family: "Roboto", sans-serif;
   font-family: "Inter", sans-serif; 
-
+text-decoration: none;
+;
 }
 .navbar-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+  background-color: var(--main-backgrouncolor);
+  height: 90px;
+  ;
   gap: 3px;
 }
-
+.active {
+  text-decoration: underline;
+}
 .portfolio,
 .stocks,
 .reits,
 .bonds,
 .cart {
   padding: 3px 13px 13px 3px;
-  color: #333;
+  color: white;
 }
 
 .home {
-  position: fixed;
-  left: 0;
-  padding: 0;
+ padding: 0;
 }
 
 .cart {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
+  margin-top: 10px;
 }
 .image-home-icon {
   width: 50px;
@@ -41,6 +49,8 @@
   justify-content: center;
   align-items: center;
   margin: auto;
+  margin-bottom: 250px;
+  ;
 }
 .h1-home {
   font-size: 1rem;
@@ -107,4 +117,27 @@
   background-size: contain;
   background-position: center center;
   object-fit: cover;
+}
+/* Footer.css */
+footer {
+  padding: 10px;
+  text-align: center;
+  color: white;
+  
+  background-color: var(--main-backgrouncolor);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: large;
+    width: 100%;
+    text-decoration: none;
+    
+  }
+  
+.git-icon {
+  color: white;
+  font-size: 1.1rem;
+  margin-top: 4px;
+
+  ;
 }
