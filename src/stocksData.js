@@ -1,13 +1,19 @@
-const stockData = [
+const stocksData = [
+  {
+    ticker: "AAPL",
+    name: "Apple Inc",
+    price2023: 250.5,
+    size: 200,
+  },
     {
       ticker: "ACN",
-      name: "Accenture",
+      name: "Accenture Plc",
       price2023: 250.5,
       size: 200,
     },
     {
       ticker: "ADBE",
-      name: "Adobe",
+      name: "Adobe Inc",
       price2023: 350.2,
       size: 300,
     },
@@ -55,5 +61,5 @@ const stockData = [
     },
   ];
   
-  module.exports = stockData;
+  module.exports = stocksData;
   

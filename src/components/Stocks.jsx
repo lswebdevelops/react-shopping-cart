@@ -1,5 +1,5 @@
 import React from "react";
-import stockData from "../stockData";
+import stocksData from "../stocksData";
 import "../styles/Stocks.css";
 
 const Stocks = () => {
@@ -17,11 +17,11 @@ const Stocks = () => {
           </tr>
         </thead>
         <tbody>
-          {stockData.map((stock) => (
+          {stocksData.map((stock) => (
             <tr className="stock-row" key={stock.ticker}>
               <td>
                 <img
-                  src={require(`../images/stock_images/${stock.ticker}.png`)}
+                  src={require(`../images/stocks_images/${stock.ticker}.png`)}
                   alt={stock.name}
                   className="stock-logo"
                 />

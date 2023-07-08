@@ -1,4 +1,4 @@
-const reitData = [
+const reitsData = [
     {
       ticker: "AMT",
       name: "American Tower Corporation",
@@ -61,5 +61,5 @@ const reitData = [
     },
   ];
   
-  module.exports = reitData;
+  module.exports = reitsData;
   
