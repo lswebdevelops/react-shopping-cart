@@ -1,12 +1,12 @@
 import React from "react";
-import reitsData from "../reitsData";
+import reitsData from "../assets/reitsData";
 import "../styles/Stocks.css";
 
 
 const Reits = () => {
   return (
     <div className="stocks-container">
-             <h1>Reits page</h1>
+             <h1>REIT Options</h1>
 
       <table className="stocks-table">
         <thead>

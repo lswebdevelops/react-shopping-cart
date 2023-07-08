@@ -1,0 +1,31 @@
+:root {
+    --main-backgrouncolor: rgb(12, 89, 104);
+  }
+.hovertext {
+  position: relative;
+}
+
+.hovertext:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: 140px;
+  background-color: var(--main-backgrouncolor);
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  font-family: Roboto;
+  top: 110%;
+  /* transition: opacity 2s ease-in-out; */
+}
+
+.hovertext:hover:before {
+  opacity: 1;
+  visibility: visible;
+  /* transition: opacity 2s ease-in-out; */
+}

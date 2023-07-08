@@ -1,10 +1,5 @@
 import React from "react";
-import { Link, Routes, Route, BrowserRouter } from "react-router-dom";
-import Cart from "./components/Cart";
-import Stocks from "./components/Stocks";
-import Reits from "./components/Reits";
-import Portfolio from "./components/Portfolio";
-import Bonds from "./components/Bonds";
+import { Link } from "react-router-dom";
 
 
 function Home() {

@@ -1,5 +1,5 @@
 import React from "react";
-import bondsData from "../bondsData";
+import bondsData from "../assets/bondsData";
 import "../styles/Stocks.css";
 
 const Bonds = () => {

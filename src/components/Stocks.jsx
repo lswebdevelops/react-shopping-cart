@@ -1,5 +1,5 @@
 import React from "react";
-import stocksData from "../stocksData";
+import stocksData from "../assets/stocksData";
 import "../styles/Stocks.css";
 
 const Stocks = () => {
