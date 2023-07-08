@@ -8,6 +8,7 @@ import Bonds from "./components/Bonds";
 import Home from "./Home";
 import { FaCartArrowDown } from "react-icons/fa6";
 import Footer from "./components/Footer";
+import Payment from "./components/Payment";
 
 
 const RouteSwitch = () => {
@@ -32,6 +33,8 @@ const RouteSwitch = () => {
         <Route path="/reits" element={<Reits />} />
         <Route path="/bonds" element={<Bonds />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/payment" element={<Payment />} />
+
         
         
       </Routes>

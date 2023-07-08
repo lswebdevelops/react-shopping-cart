@@ -1,0 +1,18 @@
+h1 {
+    padding: 45px;
+    text-align: center;
+    ;
+}
+.link-to-portfolio {
+    display: flex;
+    justify-content: center;
+    color: black;    
+}
+.payment-confirmed {
+    color: green;
+    font-size: 1.3rem;
+}
+.retun-span {
+
+    text-decoration: underline;
+}

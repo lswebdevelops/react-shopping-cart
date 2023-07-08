@@ -37,7 +37,7 @@
   margin-top: 10px;
 }
 .image-home-icon {
-  width: 50px;
+  width: 90px;
   color: #333;
 }
 .Home-container {
@@ -56,6 +56,7 @@
 
 .home-div-container {
   display: flex;
+  max-width: 1200px;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -134,4 +135,10 @@ footer {
   color: white;
   font-size: 1.1rem;
   margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .image-home-icon {
+    width: 50px;
+  }
 }
