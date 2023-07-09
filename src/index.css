@@ -8,6 +8,7 @@
   font-family: "Inter", sans-serif;
   text-decoration: none;
 }
+
 .link-containers a {
   font-size: 1.5rem;
 }
@@ -68,7 +69,7 @@
 }
 .home-link {
   border-radius: 5px;
-  min-width: 350px;
+  min-width: 550px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -76,7 +77,6 @@
   padding: 0 0 0 14px;
   text-decoration: none;
   font-size: 2rem;
-  width: 45%;
   color: white;
   height: 150px;
   border: #333 1px solid;
@@ -141,6 +141,15 @@ footer {
 }
 
 
+/********** Medium devices only **********/
+@media (min-width: 551px) and (max-width: 1179px) {
+  .home-link {
+   
+    min-width: 450px;
+   
+  }
+  
+}
 
 /*  small screens: */
 @media (max-width: 550px) {
@@ -152,5 +161,13 @@ footer {
   }
   .navbar-container {    
     gap: 1px;
+  }
+  .home-link {
+   
+    min-width: 350px;
+   
+  }
+  #root {
+    width: 100%;
   }
 }

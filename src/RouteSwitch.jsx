@@ -16,7 +16,7 @@ const RouteSwitch = () => {
     <BrowserRouter>
       <nav className="navbar-container">
         <Link className="home" to={"/"}>
-          <span class="hovertext" data-hover="Home">
+          <span className="hovertext" data-hover="Home">
             <img
               className="image-home-icon"
               src={require(`./images/home_icon.jpg`)}

@@ -27,3 +27,17 @@
 .stock-row:nth-child(even) {
   background-color: #f2f2f2;
 }
+
+.button-handleStockPurchase {
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+
+
+  ;
+}
+.button-handleStockPurchase:hover{
+  font-size: larger;
+  color: green;
+}
