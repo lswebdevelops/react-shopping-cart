@@ -1,51 +1,72 @@
 import React from "react";
-import '../styles/Cart.css';
-import { FaMoneyCheckAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import "../styles/Cart.css";
+import stocksData from "../assets/stocksData";
 
-const Cart = () => {
-    return(
-       <div>
-         <h1>My Cart </h1>
-         <div className="purchase-container">
-            <div className="subtotal-container">
-            <div className="purchase-container-item">
-                <h2>Stocks</h2>
-                <div className="items-container-">
-                    <p>{"subtotal: $ 100.00"}</p>
-                </div>
-            </div>
-            <div className="purchase-container-item">
-                <h2>Reits</h2>
-                <div className="items-container-">
-                    <p>{"subtotal: $ 100.00"}</p>
-                </div>
-            </div>
-            <div className="purchase-container-item">
-                <h2>Bonds</h2>
-                <div className="items-container-">
-                    <p>{"subtotal: $ 100.00"}</p>
-                </div>
-            </div>
-            </div>
+const Cart = (props) => {
+  const { cartItems, addToPortfolio } = props;
 
+  const totalPrice = cartItems.reduce((total, item) => {
+    return total + item.price2023;
+  }, 0);
 
-            <div className="purchase-container-item-payment">
-                <h2>Payment</h2>
-                <div className="payment-subcontainer">
-                <div className="items-container-">
-                    <p className="payment-total">{"Total: $ 300.00"}</p>
-                </div>
-                
-                </div>
-                <Link 
-                    to={"/payment"}>
-                    <FaMoneyCheckAlt
-                    className="payment-icon" />
-                </Link>
-            </div>
-         </div>
-       </div>
-    )
-}
+  const formatNumber = (number) => {
+    return number.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  const formatSize = (size) => {
+    const billions = size / 1000;
+    return `${formatNumber(billions)}B`;
+  };
+  const handleAddToPortfolio = () => {
+    addToPortfolio(cartItems);
+  };
+  
+  return (
+    <div className="cart-container">
+      <h1>Cart</h1>
+      <table className="cart-table">
+        <thead>
+          <tr>
+            <th>Logo</th>
+            <th>Ticker</th>
+            <th>Company Name</th>
+            <th>Last Price</th>
+            <th>Market Cap</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cartItems.map((item, index) => {
+            const stock = stocksData.find(
+              (stock) => stock.ticker === item.ticker
+            );
+
+            return (
+              <tr key={index} className="cart-row">
+                <td>
+                  <img
+                    src={require(`../images/stocks_images/${stock.ticker}.png`)}
+                    alt={stock.name}
+                    className="stock-logo"
+                  />
+                </td>
+                <td>{item.ticker}</td>
+                <td>{item.name}</td>
+                <td>${formatNumber(item.price2023)}</td>
+                <td>{formatSize(item.size)}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <button className="add-portfolio" onClick={handleAddToPortfolio}>
+        Add to portfolio
+      </button>
+      <div className="total-price">
+        <span>TOTAL:</span>
+        <span>${formatNumber(totalPrice)}</span>
+      </div>
+    </div>
+  );
+};
+
 export default Cart;

@@ -1,0 +1,56 @@
+/* Portfolio.css */
+
+.portfolio-container {
+  margin: 20px;
+}
+
+.total-price-portfolio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.h1-portfolio {
+  margin: 0;
+}
+
+.portfolio-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 100px;
+}
+
+.portfolio-table th,
+.portfolio-table td {
+  padding: 10px;
+  text-align: center;
+}
+
+.portfolio-table th {
+  background-color: #f2f2f2;
+}
+
+.portfolio-row:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.stock-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.button-handleStockPurchase {
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+}
+
+.button-handleStockPurchase:hover {
+  font-size: larger;
+  color: green;
+}
+
+/* Add more styles as needed */

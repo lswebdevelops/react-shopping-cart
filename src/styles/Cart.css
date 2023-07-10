@@ -1,49 +1,61 @@
-.purchase-container {
+/* Cart.css */
+
+.cart-container {
+  margin: 20px;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 100px;
+}
+
+.cart-table th,
+.cart-table td {
+  padding: 10px;
+  text-align: center;
+}
+
+.cart-table th {
+  background-color: #f2f2f2;
+}
+
+.stock-logo {
+  width: 50px;
+  height: 50px;
+}
+
+.cart-row:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.total-price {
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
-  /* border: solid 1px firebrick; */
-}
-.subtotal-container {
-  gap: 35px;  
-  display: flex;
-  flex-direction: row;
-  /* justify-content: space-around; */
-}
-.purchase-container-item {
-  /* border: solid 1px firebrick; */
-  text-align: center;
-}
-.items-container-cart {
-  display: flex;
-}
-.purchase-container-item-payment {
-  padding-top: 35px;
-  display: flex;
-  flex-direction: column;
-  /* border: solid 1px firebrick; */
-  text-align: center;
-  font-size: larger;
-}
-.payment-total {
-  font-size: larger;
-}
-.payment-subcontainer {
-  display: flex;
-}
-.payment-icon {
+  margin-top: 20px;
   font-size: 2rem;
-    padding: 10px 10px 30px 10px;
-    color: black;
-    
-
+  font-weight: bold;
+  margin-bottom: 150px;
 }
-.payment-icon:hover {
-  font-size: 3rem;
-    padding: 10px 10px 30px 10px;
 
+.total-price span {
+  margin-left: 10px;
+  ;
 }
-.purchase-container-item-payment h2 {
-    padding: 10px 10px 30px 10px;
-    ;
+
+.add-portfolio{
+  font-size: 2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  width: 280px;;
+  height: 50px;
+  cursor: pointer;
+}
+.add-portfolio:hover{
+ 
+  text-decoration: underline;
+  border: solid rgb(196, 194, 194) 1px;
+  color:rgba(50, 50, 50, 0.9);
 }

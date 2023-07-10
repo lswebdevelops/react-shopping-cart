@@ -1,21 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import stocksData from "../assets/stocksData";
 import "../styles/Stocks.css";
-import { FaCartArrowDown } from "react-icons/fa6";
+import { FaCartArrowDown } from "react-icons/fa";
 
-const Stocks = () => {
-  const [addStockToCart, setAddStockToCart] = useState(0);
+const Stocks = (props) => {
 
-  function handleStockPurchase(ticker) {   
-    const stock = stocksData.find((stock) => stock.ticker === ticker);
-    if (stock) {
-      setAddStockToCart(addStockToCart + stock.price2023);
-      console.log(stock);
-     
-    }
-  }
-
-  return (
+    return (
     <div className="stocks-container">
       <h1>Stocks</h1>
       <table className="stocks-table">
@@ -42,8 +32,7 @@ const Stocks = () => {
               <td>
                 <button
                   className="button-handleStockPurchase"
-                  onClick={() => handleStockPurchase(stock.ticker)}
-                >
+                  onClick={() => props.addToCart(stock)}>
                   <FaCartArrowDown />
                 </button>
               </td>
@@ -57,6 +46,6 @@ const Stocks = () => {
       </table>
     </div>
   );
-};
+}
 
 export default Stocks;
