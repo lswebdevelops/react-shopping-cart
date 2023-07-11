@@ -20,7 +20,7 @@ const Cart = (props) => {
   const handleAddToPortfolio = () => {
     addToPortfolio(cartItems);
   };
-  
+
   return (
     <div className="cart-container">
       <h1>Cart</h1>
@@ -58,13 +58,25 @@ const Cart = (props) => {
           })}
         </tbody>
       </table>
-      <button className="add-portfolio" onClick={handleAddToPortfolio}>
-        Add to portfolio
-      </button>
       <div className="total-price">
         <span>TOTAL:</span>
         <span>${formatNumber(totalPrice)}</span>
       </div>
+      {props.cartCount > 0 && (
+        <div>
+          <div className="div-add-portfolio-clear-cart">
+            <button
+              className="add-portfolio-button"
+              onClick={handleAddToPortfolio}
+            >
+              <span>Add to portfolio</span>
+            </button>
+          </div>
+        </div>
+      )}
+      <button className="clear-cart-button" onClick={props.resetCartCount}>
+        Clear Cart
+      </button>
     </div>
   );
 };

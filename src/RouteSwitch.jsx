@@ -27,6 +27,7 @@ class RouteSwitch extends Component {
       stocks: initialStocks,
       cartItems: [],
       portfolioItems: [],
+      cartCount: 0,
     };
   }
   addToPortfolio = (items) => {
@@ -58,15 +59,41 @@ class RouteSwitch extends Component {
       }
     );
   };
+  resetCartCount = () => {
+    this.setState({
+      cartCount: 0,
+      cartItems: [],
+    })
+  }
   // Function to add an item to the cart
   addToCart = (item) => {
+    const { cartItems } = this.state;
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+    if (existingItem) {
+      const updatedCartItems = cartItems.map((cartItem) => {
+        if (cartItem.id === item.id) {
+          return {
+            ...cartItem,
+            price2023: cartItem.price2023 * 2,
+          };
+        }
+        return cartItem;
+      });
+      this.setState({
+        cartItems: updatedCartItems,
+      });
+    } else {
+      this.setState((prevState) => ({
+        cartItems: [...prevState.cartItems, item],
+      }));
+    }
     this.setState((prevState) => ({
-      cartItems: [...prevState.cartItems, item],
+      cartCount: prevState.cartCount + 1, // Increment cartCount by 1
     }));
   };
 
   render() {
-    const { stocks, cartItems, portfolioItems } = this.state;
+    const { stocks, cartItems, cartCount, portfolioItems } = this.state;
     return (
       <BrowserRouter>
         <nav className="navbar-container">
@@ -92,10 +119,11 @@ class RouteSwitch extends Component {
             <NavLink className="bonds" to={"/bonds"}>
               Bonds
             </NavLink>
-            <Link className="cart" to={"/cart"}>
-              {" "}
-              <FaCartArrowDown />
-            </Link>
+            <Link to="/cart" className="cart cart-icon">
+  <FaCartArrowDown />
+  {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+</Link>
+                
           </div>
         </nav>
 
@@ -111,7 +139,7 @@ class RouteSwitch extends Component {
           <Route
           path="/cart"
           element={
-            <Cart cartItems={cartItems} addToPortfolio={this.addToPortfolio} />
+            <Cart cartItems={cartItems} cartCount={cartCount} addToPortfolio={this.addToPortfolio} resetCartCount={this.resetCartCount}/>
           }
         />
           <Route path="/payment" element={<Payment />} />
