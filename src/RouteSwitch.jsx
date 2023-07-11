@@ -30,11 +30,7 @@ class RouteSwitch extends Component {
       cartCount: 0,
     };
   }
-  addToPortfolio = (items) => {
-    this.setState((prevState) => ({
-      portfolioItems: [...prevState.portfolioItems, ...items],
-    }));
-  };
+ 
 
 
   onSubmitStock = (e) => {
@@ -65,6 +61,30 @@ class RouteSwitch extends Component {
       cartItems: [],
     })
   }
+  addToPortfolio = (items) => {
+    const { portfolioItems } = this.state;
+    const existingItem = portfolioItems.find((item) => item.id === items[0].id);
+    if (existingItem) {
+      const updatedPortfolioItems = portfolioItems.map((item) => {
+        if (item.id === existingItem.id) {
+          return {
+            ...item,
+            price2023: item.price2023 * 2,
+          };
+        }
+        return item;
+      });
+      this.setState({
+        portfolioItems: updatedPortfolioItems,
+      });
+    } else {
+      this.setState((prevState) => ({
+        portfolioItems: [...prevState.portfolioItems, ...items],
+      }));
+    }
+  };
+  
+
   // Function to add an item to the cart
   addToCart = (item) => {
     const { cartItems } = this.state;
@@ -139,7 +159,11 @@ class RouteSwitch extends Component {
           <Route
           path="/cart"
           element={
-            <Cart cartItems={cartItems} cartCount={cartCount} addToPortfolio={this.addToPortfolio} resetCartCount={this.resetCartCount}/>
+            <Cart 
+              cartItems={cartItems} 
+              cartCount={cartCount} 
+              addToPortfolio={this.addToPortfolio} 
+              resetCartCount={this.resetCartCount}/>
           }
         />
           <Route path="/payment" element={<Payment />} />
