@@ -1,11 +1,13 @@
 import React from "react";
 import bondsData from "../assets/bondsData";
 import "../styles/Stocks.css";
+import { FaCartArrowDown } from "react-icons/fa";
+
 
 const Bonds = () => {
   return (
     <div className="stocks-container">
-      <h1>Bonds</h1>
+      <h1>Bond Options</h1>
       <table className="stocks-table">
         <thead>
           <tr>
@@ -17,19 +19,19 @@ const Bonds = () => {
           </tr>
         </thead>
         <tbody>
-          {bondsData.map((stock) => (
-            <tr className="stock-row" key={stock.ticker}>
+          {bondsData.map((item) => (
+            <tr className="stock-row" key={item.ticker}>
               <td>
                 <img
-                  src={require(`../images/bonds_images/${stock.ticker}.png`)}
-                  alt={stock.name}
+                  src={require(`../images/bonds_images/${item.ticker}.png`)}
+                  alt={item.name}
                   className="stock-logo"
                 />
               </td>
-              <td>{stock.ticker}</td>
-              <td>{stock.name}</td>
-              <td>{stock.price2023}</td>
-              <td>${stock.size} billion</td>
+              <td>{item.ticker}</td>
+              <td>{item.name}</td>
+              <td>{item.price2023}</td>
+              <td>${item.size} billion</td>
             </tr>
           ))}
         </tbody>

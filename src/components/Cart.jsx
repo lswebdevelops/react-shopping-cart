@@ -62,6 +62,7 @@ const Cart = (props) => {
         <span>TOTAL:</span>
         <span>${formatNumber(totalPrice)}</span>
       </div>
+      <div className="div-add-portfolio-clear-cart-container">
       {props.cartCount > 0 && (
         <div>
           <div className="div-add-portfolio-clear-cart">
@@ -77,6 +78,7 @@ const Cart = (props) => {
       <button className="clear-cart-button" onClick={props.resetCartCount}>
         Clear Cart
       </button>
+      </div>
     </div>
   );
 };

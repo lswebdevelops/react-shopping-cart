@@ -61,6 +61,10 @@
   border: solid rgb(196, 194, 194) 1px;
   color: rgba(50, 50, 50, 0.9);
 }
+.div-add-portfolio-clear-cart-container {
+  display: flex;
+  ;
+}
 .div-add-portfolio-clear-cart {
   margin-bottom: 50px;
 }

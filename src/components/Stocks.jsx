@@ -7,7 +7,7 @@ const Stocks = (props) => {
 
     return (
     <div className="stocks-container">
-      <h1>Stocks</h1>
+      <h1>Stock Options</h1>
       <table className="stocks-table">
         <thead>
           <tr>
@@ -20,26 +20,26 @@ const Stocks = (props) => {
           </tr>
         </thead>
         <tbody>
-          {stocksData.map((stock) => (
-            <tr className="stock-row" key={stock.ticker}>
+          {stocksData.map((item) => (
+            <tr className="stock-row" key={item.ticker}>
               <td>
                 <img
-                  src={require(`../images/stocks_images/${stock.ticker}.png`)}
-                  alt={stock.name}
+                  src={require(`../images/stocks_images/${item.ticker}.png`)}
+                  alt={item.name}
                   className="stock-logo"
                 />
               </td>
               <td>
                 <button
                   className="button-handleStockPurchase"
-                  onClick={() => props.addToCart(stock)}>
+                  onClick={() => props.addToCart(item)}>
                   <FaCartArrowDown />
                 </button>
               </td>
-              <td>{stock.ticker}</td>
-              <td>{stock.name}</td>
-              <td>{stock.price2023}</td>
-              <td>${stock.size} billion</td>
+              <td>{item.ticker}</td>
+              <td>{item.name}</td>
+              <td>{item.price2023}</td>
+              <td>${item.size} billion</td>
             </tr>
           ))}
         </tbody>

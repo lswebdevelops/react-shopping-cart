@@ -7,7 +7,7 @@ function Home() {
     
     <div className="Home-container">
       <h1 className="h1-home">
-        Unlock Your Wealth Potential with Our Expert Brokerage Services!
+        Unlock Your Wealth Potential with Our Expert Brokerage Services
       </h1>
       <div className="home-div-container">
         <Link to={"/stocks"} className="home-link stocks-home">Stocks</Link>
