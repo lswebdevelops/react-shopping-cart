@@ -9,6 +9,7 @@ import Home from "./Home";
 import { FaCartArrowDown } from "react-icons/fa6";
 import Footer from "./components/Footer";
 import "./styles/Home.css";
+import Individual from "./components/Individual";
 
 class RouteSwitch extends Component {
   constructor() {
@@ -235,6 +236,13 @@ class RouteSwitch extends Component {
               />
             }
           />
+           <Route
+            path="/individual"
+            element={
+              <Individual />
+            }
+          />
+
         </Routes>
         <Footer />
       </BrowserRouter>

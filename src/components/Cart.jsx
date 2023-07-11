@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Cart.css";
 import stocksData from "../assets/stocksData";
+import { Link } from "react-router-dom";
 import bondsData from "../assets/bondsData";
 import reitsData from "../assets/reitsData";
 
@@ -54,15 +55,18 @@ const Cart = (props) => {
             }
             return (
               <tr key={index} className="cart-row">
-                <td>
-                  {imageSource && (
-                    <img
-                      src={imageSource}
-                      alt={data?.name}
-                      className="stock-logo"
-                    />
-                  )}
-                </td>
+                <Link to={"/individual"}>
+                  <td>
+                    {imageSource && (
+                      <img
+                        src={imageSource}
+                        alt={data?.name}
+                        className="stock-logo"
+                      />
+                    )}
+                  </td>
+                </Link>
+
                 <td>{item.ticker}</td>
                 <td>{item.name}</td>
                 <td>${formatNumber(item.price2023)}</td>

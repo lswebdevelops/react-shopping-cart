@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Portfolio.css";
 import stocksData from "../assets/stocksData";
+import { Link } from "react-router-dom";
 import bondsData from "../assets/bondsData";
 import reitsData from "../assets/reitsData";
 
@@ -37,12 +38,9 @@ const Portfolio = (props) => {
           </tr>
         </thead>
         <tbody>
-
-           
-        {portfolioItems.map((item, index) => {
+          {portfolioItems.map((item, index) => {
             let data, imageSource, imagePrefix;
             if (item.type === "stocks") {
-              
               data = stocksData.find((stock) => stock.ticker === item.ticker);
               imagePrefix = "stocks_images";
             } else if (item.type === "bonds") {
@@ -54,21 +52,23 @@ const Portfolio = (props) => {
             }
 
             if (data) {
-              imageSource =
-                require(`../images/${imagePrefix}/${item.ticker}.png`);
+              imageSource = require(`../images/${imagePrefix}/${item.ticker}.png`);
             }
 
             return (
               <tr key={index} className="portfolio-row">
-                <td>
-                  {imageSource && (
-                    <img src={imageSource}
-					  
-                      alt={data?.name}
-                      className="stock-logo"
-                    />
-                  )}
-                </td>
+                <Link to={"/individual"}>
+                  <td>
+                    {imageSource && (
+                      <img
+                        src={imageSource}
+                        alt={data?.name}
+                        className="stock-logo"
+                      />
+                    )}
+                  </td>
+                </Link>
+
                 <td>{item.ticker}</td>
                 <td>{item.name}</td>
                 <td>${formatNumber(item.price2023)}</td>
@@ -76,7 +76,6 @@ const Portfolio = (props) => {
               </tr>
             );
           })}
-
         </tbody>
       </table>
     </div>

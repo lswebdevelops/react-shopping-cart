@@ -1,5 +1,6 @@
 import React from "react";
 import reitsData from "../assets/reitsData";
+import { Link } from "react-router-dom";
 import "../styles/Stocks.css";
 import { FaCartArrowDown } from "react-icons/fa";
 
@@ -22,11 +23,14 @@ const Reits = (props) => {
         {reitsData.map((item) => (
             <tr className="stock-row" key={item.ticker}>
               <td>
+              <Link
+                  to={"/individual"}>
                 <img
                   src={require(`../images/reits_images/${item.ticker}.png`)}
                   alt={item.name}
                   className="stock-logo"
                 />
+                </Link>
               </td>
               <td>
                 <button
