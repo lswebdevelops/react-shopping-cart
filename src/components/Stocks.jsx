@@ -12,7 +12,7 @@ const Stocks = (props) => {
         <thead>
           <tr>
             <th>Logo</th>
-            <th>Buy Stock</th>
+            <th>Buy Item</th>
             <th>Ticker</th>
             <th>Company Name</th>
             <th>Last Price</th>

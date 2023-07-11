@@ -8,21 +8,25 @@ import Bonds from "./components/Bonds";
 import Home from "./Home";
 import { FaCartArrowDown } from "react-icons/fa6";
 import Footer from "./components/Footer";
-import Payment from "./components/Payment";
 import "./styles/Home.css";
-
 
 class RouteSwitch extends Component {
   constructor() {
     super();
+  
+    const bondsFromStorage = localStorage.getItem("bonds");
+    const initialBonds = bondsFromStorage ? JSON.parse(bondsFromStorage) : [];
+  
     const stocksFromStorage = localStorage.getItem("stocks");
-    const initialStocks = stocksFromStorage
-      ? JSON.parse(stocksFromStorage)
-      : [];
+    const initialStocks = stocksFromStorage ? JSON.parse(stocksFromStorage) : [];
+  
     this.state = {
+      bond: {
+        text: "",
+      },
+      bonds: initialBonds,
       stock: {
         text: "",
-      
       },
       stocks: initialStocks,
       cartItems: [],
@@ -30,8 +34,28 @@ class RouteSwitch extends Component {
       cartCount: 0,
     };
   }
- 
+  
 
+  onSubmitBond = (e) => {
+    e.preventDefault();
+    if (this.state.bond.text.trim() === " ") {
+      return;
+    }
+    const newBond = {
+      text: this.state.bond.text,
+    };
+    this.setState(
+      (prevState) => ({
+        bonds: [...prevState.bonds, newBond],
+        bond: {
+          text: "",
+        },
+      }),
+      () => {
+        localStorage.setItem("bonds", JSON.stringify(this.state.bonds));
+      }
+    );
+  };
 
   onSubmitStock = (e) => {
     e.preventDefault();
@@ -40,14 +64,12 @@ class RouteSwitch extends Component {
     }
     const newStock = {
       text: this.state.stock.text,
-     
     };
     this.setState(
       (prevState) => ({
         stocks: [...prevState.stocks, newStock],
         stock: {
           text: "",
-         
         },
       }),
       () => {
@@ -59,8 +81,8 @@ class RouteSwitch extends Component {
     this.setState({
       cartCount: 0,
       cartItems: [],
-    })
-  }
+    });
+  };
   addToPortfolio = (items) => {
     const { portfolioItems } = this.state;
     let updatedPortfolioItems = [...portfolioItems];
@@ -88,9 +110,6 @@ class RouteSwitch extends Component {
       cartCount: 0,
     });
   };
-  
-  
-  
 
   // Function to add an item to the cart
   addToCart = (item) => {
@@ -147,33 +166,42 @@ class RouteSwitch extends Component {
               Bonds
             </NavLink>
             <Link to="/cart" className="cart cart-icon">
-  <FaCartArrowDown />
-  {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
-</Link>
-                
+              <FaCartArrowDown />
+              {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+            </Link>
           </div>
         </nav>
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/portfolio" element={<Portfolio portfolioItems={portfolioItems}/>} />
+          <Route
+            path="/portfolio"
+            element={<Portfolio portfolioItems={portfolioItems} />}
+          />
           <Route
             path="/stocks"
             element={<Stocks stocks={stocks} addToCart={this.addToCart} />}
           />
+        <Route
+  path="/bonds"
+  element={
+    <Bonds bonds={this.state.bonds} addToCart={this.addToCart} />
+  }
+/>
+
+
           <Route path="/reits" element={<Reits />} />
-          <Route path="/bonds" element={<Bonds />} />
           <Route
-          path="/cart"
-          element={
-            <Cart 
-              cartItems={cartItems} 
-              cartCount={cartCount} 
-              addToPortfolio={this.addToPortfolio} 
-              resetCartCount={this.resetCartCount}/>
-          }
-        />
-          <Route path="/payment" element={<Payment />} />
+            path="/cart"
+            element={
+              <Cart
+                cartItems={cartItems}
+                cartCount={cartCount}
+                addToPortfolio={this.addToPortfolio}
+                resetCartCount={this.resetCartCount}
+              />
+            }
+          />         
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -4,7 +4,7 @@ import "../styles/Stocks.css";
 import { FaCartArrowDown } from "react-icons/fa";
 
 
-const Bonds = () => {
+const Bonds = (props) => {
   return (
     <div className="stocks-container">
       <h1>Bond Options</h1>
@@ -12,6 +12,7 @@ const Bonds = () => {
         <thead>
           <tr>
             <th>Logo</th>
+            <th>Buy Item</th>
             <th>Ticker</th>
             <th>Company Name</th>
             <th>Last Price</th>
@@ -28,7 +29,14 @@ const Bonds = () => {
                   className="stock-logo"
                 />
               </td>
-              <td>{item.ticker}</td>
+              <td>
+                <button
+                  className="button-handleStockPurchase"
+                  onClick={() => props.addToCart(item)}>
+                  <FaCartArrowDown />
+                </button>
+              </td>
+              <td>{item.ticker}</td>              
               <td>{item.name}</td>
               <td>{item.price2023}</td>
               <td>${item.size} billion</td>

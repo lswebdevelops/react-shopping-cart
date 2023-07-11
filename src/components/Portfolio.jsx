@@ -1,5 +1,8 @@
 import React from "react";
 import "../styles/Portfolio.css";
+import stocksData from "../assets/stocksData";
+import bondsData from "../assets/bondsData";
+import reitsData from "../assets/reitsData";
 
 const Portfolio = (props) => {
   const { portfolioItems } = props;
@@ -34,15 +37,37 @@ const Portfolio = (props) => {
           </tr>
         </thead>
         <tbody>
-          {portfolioItems.map((item) => {
+
+           
+        {portfolioItems.map((item, index) => {
+            let data, imageSource, imagePrefix;
+            if (item.type === "stocks") {
+              
+              data = stocksData.find((stock) => stock.ticker === item.ticker);
+              imagePrefix = "stocks_images";
+            } else if (item.type === "bonds") {
+              data = bondsData.find((bond) => bond.ticker === item.ticker);
+              imagePrefix = "bonds_images";
+            } else if (item.type === "reits") {
+              data = reitsData.find((reit) => reit.ticker === item.ticker);
+              imagePrefix = "reits_images";
+            }
+
+            if (data) {
+              imageSource =
+                require(`../images/${imagePrefix}/${item.ticker}.png`);
+            }
+
             return (
-              <tr key={item.id} className="portfolio-row">
+              <tr key={index} className="portfolio-row">
                 <td>
-                  <img
-                    src={require(`../images/stocks_images/${item.ticker}.png`)}
-                    alt={item.name}
-                    className="stock-logo"
-                  />
+                  {imageSource && (
+                    <img src={imageSource}
+					  
+                      alt={data?.name}
+                      className="stock-logo"
+                    />
+                  )}
                 </td>
                 <td>{item.ticker}</td>
                 <td>{item.name}</td>
@@ -51,6 +76,7 @@ const Portfolio = (props) => {
               </tr>
             );
           })}
+
         </tbody>
       </table>
     </div>

@@ -5,6 +5,7 @@ const reitsData = [
     name: "American Tower Corporation",
     price2023: 200.5,
     size: 90,
+    type: "reits",
   },
   {
     id: 1001,
@@ -12,6 +13,7 @@ const reitsData = [
     name: "Prologis, Inc.",
     price2023: 250.2,
     size: 110,
+    type: "reits",
   },
   {
     id: 1002,
@@ -19,6 +21,7 @@ const reitsData = [
     name: "Equinix, Inc.",
     price2023: 300.7,
     size: 70,
+    type: "reits",
   },
   {
     id: 1003,
@@ -26,6 +29,7 @@ const reitsData = [
     name: "Public Storage",
     price2023: 180.4,
     size: 80,
+    type: "reits",
   },
   {
     id: 1004,
@@ -33,6 +37,7 @@ const reitsData = [
     name: "Simon Property Group",
     price2023: 150.8,
     size: 120,
+    type: "reits",
   },
   {
     id: 1005,
@@ -40,6 +45,7 @@ const reitsData = [
     name: "Realty Income Corporation",
     price2023: 220.3,
     size: 95,
+    type: "reits",
   },
   {
     id: 1006,
@@ -47,6 +53,7 @@ const reitsData = [
     name: "AvalonBay Communities",
     price2023: 280.6,
     size: 75,
+    type: "reits",
   },
   {
     id: 1007,
@@ -54,6 +61,7 @@ const reitsData = [
     name: "Equity Residential",
     price2023: 210.9,
     size: 100,
+    type: "reits",
   },
   {
     id: 1008,
@@ -61,6 +69,7 @@ const reitsData = [
     name: "Digital Realty Trust",
     price2023: 260.1,
     size: 85,
+    type: "reits",
   },
   {
     id: 1009,
@@ -68,6 +77,7 @@ const reitsData = [
     name: "Alexandria Real Estate Equities",
     price2023: 240.3,
     size: 120,
+    type: "reits",
   },
 ];
 
