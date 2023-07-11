@@ -37,11 +37,10 @@ const bondsData = [
     name: "iShares iBoxx Investment Grade Corporate Bond ETF",
     price2023: 108.9,
     size: 400,
+    type: "bonds",
   },
   {
     id: 2005,
-    type: "bonds",
-
     ticker: "HYG",
     name: "iShares iBoxx High Yield Corporate Bond ETF",
     price2023: 98.3,
