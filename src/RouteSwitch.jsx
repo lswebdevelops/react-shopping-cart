@@ -63,26 +63,33 @@ class RouteSwitch extends Component {
   }
   addToPortfolio = (items) => {
     const { portfolioItems } = this.state;
-    const existingItem = portfolioItems.find((item) => item.id === items[0].id);
-    if (existingItem) {
-      const updatedPortfolioItems = portfolioItems.map((item) => {
-        if (item.id === existingItem.id) {
-          return {
-            ...item,
-            price2023: item.price2023 * 2,
-          };
-        }
-        return item;
-      });
-      this.setState({
-        portfolioItems: updatedPortfolioItems,
-      });
-    } else {
-      this.setState((prevState) => ({
-        portfolioItems: [...prevState.portfolioItems, ...items],
-      }));
-    }
+    let updatedPortfolioItems = [...portfolioItems];
+    items.forEach((item) => {
+      const existingItem = updatedPortfolioItems.find(
+        (portfolioItem) => portfolioItem.id === item.id
+      );
+      if (existingItem) {
+        updatedPortfolioItems = updatedPortfolioItems.map((portfolioItem) => {
+          if (portfolioItem.id === item.id) {
+            return {
+              ...portfolioItem,
+              price2023: portfolioItem.price2023 + item.price2023,
+            };
+          }
+          return portfolioItem;
+        });
+      } else {
+        updatedPortfolioItems.push(item);
+      }
+    });
+    this.setState({
+      portfolioItems: updatedPortfolioItems,
+      cartItems: [],
+      cartCount: 0,
+    });
   };
+  
+  
   
 
   // Function to add an item to the cart
@@ -94,7 +101,7 @@ class RouteSwitch extends Component {
         if (cartItem.id === item.id) {
           return {
             ...cartItem,
-            price2023: cartItem.price2023 * 2,
+            price2023: cartItem.price2023 + item.price2023,
           };
         }
         return cartItem;

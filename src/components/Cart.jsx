@@ -75,9 +75,7 @@ const Cart = (props) => {
           </div>
         </div>
       )}
-      <button className="clear-cart-button" onClick={props.resetCartCount}>
-        Clear Cart
-      </button>
+      
       </div>
     </div>
   );
