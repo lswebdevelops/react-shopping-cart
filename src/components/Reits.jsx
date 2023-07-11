@@ -1,17 +1,17 @@
 import React from "react";
 import reitsData from "../assets/reitsData";
 import "../styles/Stocks.css";
+import { FaCartArrowDown } from "react-icons/fa";
 
-
-const Reits = () => {
+const Reits = (props) => {
   return (
     <div className="stocks-container">
-             <h1>REIT Options</h1>
-
+      <h1>REIT Options</h1>
       <table className="stocks-table">
         <thead>
           <tr>
             <th>Logo</th>
+            <th>Add to Cart</th>
             <th>Ticker</th>
             <th>Company Name</th>
             <th>Last Price</th>
@@ -19,19 +19,26 @@ const Reits = () => {
           </tr>
         </thead>
         <tbody>
-          {reitsData.map((stock) => (
-            <tr className="stock-row" key={stock.ticker}>
+        {reitsData.map((item) => (
+            <tr className="stock-row" key={item.ticker}>
               <td>
                 <img
-                  src={require(`../images/reits_images/${stock.ticker}.png`)}
-                  alt={stock.name}
+                  src={require(`../images/reits_images/${item.ticker}.png`)}
+                  alt={item.name}
                   className="stock-logo"
                 />
               </td>
-              <td>{stock.ticker}</td>
-              <td>{stock.name}</td>
-              <td>{stock.price2023}</td>
-              <td>${stock.size} billion</td>
+              <td>
+                <button
+                  className="button-handleStockPurchase"
+                  onClick={() => props.addToCart(item)}>
+                  <FaCartArrowDown />
+                </button>
+              </td>
+              <td>{item.ticker}</td>
+              <td>{item.name}</td>
+              <td>{item.price2023}</td>
+              <td>${item.size} billion</td>
             </tr>
           ))}
         </tbody>

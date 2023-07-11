@@ -4,7 +4,6 @@ import "../styles/Stocks.css";
 import { FaCartArrowDown } from "react-icons/fa";
 
 const Stocks = (props) => {
-
     return (
     <div className="stocks-container">
       <h1>Stock Options</h1>
@@ -12,7 +11,7 @@ const Stocks = (props) => {
         <thead>
           <tr>
             <th>Logo</th>
-            <th>Buy Item</th>
+            <th>Add to Cart</th>
             <th>Ticker</th>
             <th>Company Name</th>
             <th>Last Price</th>

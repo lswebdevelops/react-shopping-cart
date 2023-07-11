@@ -12,7 +12,7 @@ const Bonds = (props) => {
         <thead>
           <tr>
             <th>Logo</th>
-            <th>Buy Item</th>
+            <th>Add to Cart</th>
             <th>Ticker</th>
             <th>Company Name</th>
             <th>Last Price</th>

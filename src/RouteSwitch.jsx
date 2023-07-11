@@ -13,15 +13,23 @@ import "./styles/Home.css";
 class RouteSwitch extends Component {
   constructor() {
     super();
-  
-    const bondsFromStorage = localStorage.getItem("bonds");
-    const initialBonds = bondsFromStorage ? JSON.parse(bondsFromStorage) : [];
-  
+
     const stocksFromStorage = localStorage.getItem("stocks");
-    const initialStocks = stocksFromStorage ? JSON.parse(stocksFromStorage) : [];
-  
+    const bondsFromStorage = localStorage.getItem("bonds");
+    const reitsFromStorage = localStorage.getItem("reits");
+
+    const initialStocks = stocksFromStorage
+      ? JSON.parse(stocksFromStorage)
+      : [];
+    const initialBonds = bondsFromStorage ? JSON.parse(bondsFromStorage) : [];
+    const initialReits = reitsFromStorage ? JSON.parse(reitsFromStorage) : [];
+
     this.state = {
       bond: {
+        text: "",
+      },
+      reits: initialReits,
+      reit: {
         text: "",
       },
       bonds: initialBonds,
@@ -34,7 +42,28 @@ class RouteSwitch extends Component {
       cartCount: 0,
     };
   }
-  
+
+  onSubmitReit = (e) => {
+    e.preventDefault();
+    if (this.state.reit.text.trim() === " ") {
+      return;
+    }
+    const newReit = {
+      text: this.state.reit.text,
+    };
+    this.setState(
+      (prevState) => ({
+        reits: [...prevState.reits, newReit],
+        reit: {
+          text: "",
+        },
+      }),
+      () => {
+        localStorage.setItem("reits", JSON.stringify(this.state.reits));
+      }
+    );
+  };
+
 
   onSubmitBond = (e) => {
     e.preventDefault();
@@ -139,7 +168,7 @@ class RouteSwitch extends Component {
   };
 
   render() {
-    const { stocks, cartItems, cartCount, portfolioItems } = this.state;
+    const { stocks, bonds, reits, cartItems, cartCount, portfolioItems } = this.state;
     return (
       <BrowserRouter>
         <nav className="navbar-container">
@@ -182,15 +211,19 @@ class RouteSwitch extends Component {
             path="/stocks"
             element={<Stocks stocks={stocks} addToCart={this.addToCart} />}
           />
-        <Route
-  path="/bonds"
-  element={
-    <Bonds bonds={this.state.bonds} addToCart={this.addToCart} />
-  }
-/>
+          <Route
+            path="/bonds"
+            element={
+              <Bonds bonds={bonds} addToCart={this.addToCart} />
+            }
+          />
+          <Route
+            path="/reits"
+            element={
+              <Reits reits={reits} addToCart={this.addToCart} />
+            }
+          />
 
-
-          <Route path="/reits" element={<Reits />} />
           <Route
             path="/cart"
             element={
@@ -201,7 +234,7 @@ class RouteSwitch extends Component {
                 resetCartCount={this.resetCartCount}
               />
             }
-          />         
+          />
         </Routes>
         <Footer />
       </BrowserRouter>
