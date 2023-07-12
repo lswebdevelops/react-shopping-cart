@@ -32,6 +32,7 @@ const Portfolio = (props) => {
           <tr>
             <th>Logo</th>
             <th>Ticker</th>
+            <th>Type</th>
             <th>Company Name</th>
             <th>Last Price</th>
             <th>Market Cap</th>
@@ -57,7 +58,9 @@ const Portfolio = (props) => {
 
             return (
               <tr key={index} className="portfolio-row">
-                <td>
+                <td
+                  
+                  >
                   {imageSource && (
                     <img
                       src={imageSource}
@@ -67,6 +70,23 @@ const Portfolio = (props) => {
                   )}
                 </td>
                 <td>{item.ticker}</td>
+                <td 
+                ><span
+                style={{
+                  color: "white",
+                  backgroundColor:
+                  item.type.toLowerCase() === "stocks"
+                  ? "gray"
+                  : item.type.toLowerCase() === "reits"
+                  ? "#4681f4"
+                  : item.type.toLowerCase() === "bonds"
+                  ? "#dd7973"
+                  : "orange",                  
+                  borderRadius: "4px",
+                  padding: "4px 14px 4px 14px",
+                  minWidth: "140",
+                 }}
+                  >{item.type}</span></td>
                 <td>{item.name}</td>
                 <td>${formatNumber(item.price2023)}</td>
                 <td>{formatSize(item.size)}</td>
