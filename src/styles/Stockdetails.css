@@ -38,7 +38,7 @@
     max-width: 950px;
    
 }
-.website-stock-details {
+.website-stock-details, .add-to-cart-button {
     font-size: large;
     background-color: var(--main-backgrouncolor);
     color: white;
@@ -47,3 +47,10 @@
     border-radius: 4px;
     ;
 }
+
+.cart-button-website-container {
+  display: flex;
+  justify-content: space-between;
+
+}
+

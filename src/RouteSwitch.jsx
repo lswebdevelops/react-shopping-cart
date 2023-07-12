@@ -203,39 +203,38 @@ class RouteSwitch extends Component {
         </nav>
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/portfolio"
-            element={<Portfolio portfolioItems={portfolioItems} />}
-          />
-          <Route path="stocks" 
-            stocks={stocks} 
-            addToCart={this.addToCart}>
-            <Route index element={<Stocks />}/>         
-            <Route path=":id" element={<StockDetail />} />
-          </Route>
+  <Route path="/" element={<Home />} />
+  <Route
+    path="/portfolio"
+    element={<Portfolio portfolioItems={portfolioItems} />}
+  />
+  {/* stocks */}
+  <Route path="/stocks">
+    <Route index element={<Stocks stocks={stocks} addToCart={this.addToCart} />} />
+    <Route path=":id" element={<StockDetail addToCart={this.addToCart} />} />
+  </Route>
 
-          <Route
-            path="/bonds"
-            element={<Bonds bonds={bonds} addToCart={this.addToCart} />}
-          />
-          <Route
-            path="/reits"
-            element={<Reits reits={reits} addToCart={this.addToCart} />}
-          />
+  <Route
+    path="/bonds"
+    element={<Bonds bonds={bonds} addToCart={this.addToCart} />}
+  />
+  <Route
+    path="/reits"
+    element={<Reits reits={reits} addToCart={this.addToCart} />}
+  />
+  <Route
+    path="/cart"
+    element={
+      <Cart
+        cartItems={cartItems}
+        cartCount={cartCount}
+        addToPortfolio={this.addToPortfolio}
+        resetCartCount={this.resetCartCount}
+      />
+    }
+  />
+</Routes>
 
-          <Route
-            path="/cart"
-            element={
-              <Cart
-                cartItems={cartItems}
-                cartCount={cartCount}
-                addToPortfolio={this.addToPortfolio}
-                resetCartCount={this.resetCartCount}
-              />
-            }
-          />
-        </Routes>
         <Footer />
       </BrowserRouter>
     );
