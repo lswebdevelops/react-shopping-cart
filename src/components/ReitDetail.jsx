@@ -22,7 +22,7 @@ const ReitDetail = ({ addToCart }) => {
   return (
     <div className="stock-details-container">
       <h1 className="stock-details-title">Stock Details</h1>
-      <Link className="stock-details-back-button" to={"/stocks"}>
+      <Link className="stock-details-back-button" to={"/reits"}>
         Back to Reits
       </Link>
       {stock ? (
