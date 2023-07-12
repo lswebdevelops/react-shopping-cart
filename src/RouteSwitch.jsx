@@ -9,7 +9,7 @@ import Home from "./Home";
 import { FaCartArrowDown } from "react-icons/fa6";
 import Footer from "./components/Footer";
 import "./styles/Home.css";
-import StockDetail from './components/StockDetail';
+import StockDetail from "./components/StockDetail";
 
 class RouteSwitch extends Component {
   constructor() {
@@ -64,7 +64,6 @@ class RouteSwitch extends Component {
       }
     );
   };
-
 
   onSubmitBond = (e) => {
     e.preventDefault();
@@ -169,7 +168,8 @@ class RouteSwitch extends Component {
   };
 
   render() {
-    const { stocks, bonds, reits, cartItems, cartCount, portfolioItems } = this.state;
+    const { stocks, bonds, reits, cartItems, cartCount, portfolioItems } =
+      this.state;
     return (
       <BrowserRouter>
         <nav className="navbar-container">
@@ -208,27 +208,20 @@ class RouteSwitch extends Component {
             path="/portfolio"
             element={<Portfolio portfolioItems={portfolioItems} />}
           />
-          <Route
-            path="/stocks"
-            element={<Stocks stocks={stocks} addToCart={this.addToCart} />}
-          />
-            {/* adding nested routes> params */}
-            <Route 
-              path="/stocks/:id" 
-              element={<StockDetail />}
-              />
+          <Route path="stocks" 
+            stocks={stocks} 
+            addToCart={this.addToCart}>
+            <Route index element={<Stocks />}/>         
+            <Route path=":id" element={<StockDetail />} />
+          </Route>
 
           <Route
             path="/bonds"
-            element={
-              <Bonds bonds={bonds} addToCart={this.addToCart} />
-            }
+            element={<Bonds bonds={bonds} addToCart={this.addToCart} />}
           />
           <Route
             path="/reits"
-            element={
-              <Reits reits={reits} addToCart={this.addToCart} />
-            }
+            element={<Reits reits={reits} addToCart={this.addToCart} />}
           />
 
           <Route
@@ -242,8 +235,6 @@ class RouteSwitch extends Component {
               />
             }
           />
-           
-
         </Routes>
         <Footer />
       </BrowserRouter>

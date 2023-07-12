@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: left;
   gap: 12px;
-  margin-left: 14px;
+  margin: 14px;
 }
 .stock-details-back-button {
   display: flex;
@@ -16,10 +16,16 @@
   justify-content: center;
   background-color: var(--main-backgrouncolor);
   color: white;
-  width: 34%;
+  width: 10rem;
+  ;
+  padding: 4px;
+  ;
   height: 34px;
 }
-
+.stock-details-title {
+    font-size: 1.5rem;
+    ;
+}
 .name-stock-details {
     font-size: 1.4rem;
     padding-bottom: 15px;
@@ -27,8 +33,17 @@
     ;
 }
 .stock-details-details {
-    font-size: 1rem;
-    margin-bottom: 50px;
-    
+    font-size: 1.1rem;
+    margin-top: 20px;
+    max-width: 950px;
+   
+}
+.website-stock-details {
+    font-size: large;
+    background-color: var(--main-backgrouncolor);
+    color: white;
+    width: auto;
+    padding:  4px 14px 4px 14px;
+    border-radius: 4px;
     ;
 }

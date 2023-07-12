@@ -24,7 +24,7 @@ const Stocks = (props) => {
             <tr className="stock-row" key={item.ticker}>
               <td>
                <Link
-                  to={"/individual"}>
+                  to={`/stocks/${item.id}`}>
                <img
                   src={require(`../images/stocks_images/${item.ticker}.png`)}
                   alt={item.name}

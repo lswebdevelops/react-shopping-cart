@@ -16,14 +16,14 @@ const StockDetail = () => {
 
   return (
     <div className="stock-details-container">
-      <h1> Stock Details</h1>
+      <h1 className="stock-details-title"> Stock Details</h1>
       <Link className="stock-details-back-button" to={"/stocks"}>
         Back to Stocks
       </Link>
       {stock ? (
         <div>
           <h2 className="name-stock-details">{stock.name}</h2>            
-          <h2 className="image-stock-details">{stock.image}</h2>
+          <Link to={stock.website} className="website-stock-details">Company Website</Link>
           <h3 className="stock-details-details">{stock.description}</h3>
         </div>
       ) : (
