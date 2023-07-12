@@ -81,7 +81,12 @@ const Cart = (props) => {
                   padding: "4px 14px 4px 14px",
                   minWidth: "140",
                  }}
-                  >{item.type}</span></td>
+                  >{
+                     item.type === "stocks" ?  "stock"
+                    :item.type === "reits" ? "reit"
+                    : item.type === "bonds" ? "bond"
+                    :null                    
+                    }</span></td>
                 <td>{item.name}</td>
                 <td>${formatNumber(item.price2023)}</td>
                 <td>{formatSize(item.size)}</td>
