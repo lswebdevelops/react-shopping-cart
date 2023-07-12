@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/react-shopping-cart/static/css/main.c47d1f00.css",
-    "main.js": "/react-shopping-cart/static/js/main.eb2bceb1.js",
+    "main.css": "/react-shopping-cart/static/css/main.4a7fb600.css",
+    "main.js": "/react-shopping-cart/static/js/main.168ed58c.js",
     "static/media/portfolio_background.png": "/react-shopping-cart/static/media/portfolio_background.1c0ba466c5567073822c.png",
     "static/media/stock_background.png": "/react-shopping-cart/static/media/stock_background.b1b8f1affb28f8f8e093.png",
     "static/media/reits_background.png": "/react-shopping-cart/static/media/reits_background.58f838bf9671165a9575.png",
     "static/media/bonds_background.png": "/react-shopping-cart/static/media/bonds_background.9c742f2298ee6a37e574.png",
     "static/media/PSA.png": "/react-shopping-cart/static/media/PSA.1ae2d37024d1e73ea476.png",
     "static/media/BND.png": "/react-shopping-cart/static/media/BND.2f6e50267642d7bf6fac.png",
+    "static/media/page_screenshot.png": "/react-shopping-cart/static/media/page_screenshot.f779215e74bcf775bf5c.png",
     "static/media/ANSS.png": "/react-shopping-cart/static/media/ANSS.2598f2fbbafe5d65235d.png",
     "static/media/MSTF.png": "/react-shopping-cart/static/media/MSTF.916a6c68a4af26a65b58.png",
     "static/media/home_icon.jpg": "/react-shopping-cart/static/media/home_icon.7e5c8461fcbf32854314.jpg",
-    "static/media/VZ.png": "/react-shopping-cart/static/media/VZ.d407f1d45409e426d862.png",
     "static/media/AAPL.png": "/react-shopping-cart/static/media/AAPL.db233b21bf77ceb1aa2a.png",
     "index.html": "/react-shopping-cart/index.html",
-    "main.c47d1f00.css.map": "/react-shopping-cart/static/css/main.c47d1f00.css.map",
-    "main.eb2bceb1.js.map": "/react-shopping-cart/static/js/main.eb2bceb1.js.map"
+    "main.4a7fb600.css.map": "/react-shopping-cart/static/css/main.4a7fb600.css.map",
+    "main.168ed58c.js.map": "/react-shopping-cart/static/js/main.168ed58c.js.map"
   },
   "entrypoints": [
-    "static/css/main.c47d1f00.css",
-    "static/js/main.eb2bceb1.js"
+    "static/css/main.4a7fb600.css",
+    "static/js/main.168ed58c.js"
   ]
 }
