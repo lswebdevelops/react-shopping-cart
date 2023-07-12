@@ -23,8 +23,10 @@ const Portfolio = (props) => {
     <div className="portfolio-container">
       <div className="total-price-portfolio">
         <h1 className="h1-portfolio">Portfolio</h1>
-        <span>Net worth:</span>
+        <div>
+        <span>Net worth: </span>
         <span>${formatNumber(totalPrice)}</span>
+        </div>
       </div>
 
       <table className="portfolio-table">
