@@ -20,22 +20,23 @@ const Reits = (props) => {
           </tr>
         </thead>
         <tbody>
-        {reitsData.map((item) => (
+          {reitsData.map((item) => (
             <tr className="stock-row" key={item.ticker}>
               <td>
-              <Link
-                  to={"/individual"}>
-                <img
-                  src={require(`../images/reits_images/${item.ticker}.png`)}
-                  alt={item.name}
-                  className="stock-logo"
-                />
+                {" "}
+                <Link to={`/reits/${item.id}`}>
+                  <img
+                    src={require(`../images/reits_images/${item.ticker}.png`)}
+                    alt={item.name}
+                    className="stock-logo"
+                  />
                 </Link>
               </td>
               <td>
                 <button
                   className="button-handleStockPurchase"
-                  onClick={() => props.addToCart(item)}>
+                  onClick={() => props.addToCart(item)}
+                >
                   <FaCartArrowDown />
                 </button>
               </td>

@@ -10,6 +10,9 @@ import { FaCartArrowDown } from "react-icons/fa6";
 import Footer from "./components/Footer";
 import "./styles/Home.css";
 import StockDetail from "./components/StockDetail";
+import ReitDetail from "./components/ReitDetail";
+import BondDetail from "./components/BondDetail";
+
 
 class RouteSwitch extends Component {
   constructor() {
@@ -203,37 +206,67 @@ class RouteSwitch extends Component {
         </nav>
 
         <Routes>
-  <Route path="/" element={<Home />} />
-  <Route
-    path="/portfolio"
-    element={<Portfolio portfolioItems={portfolioItems} />}
-  />
-  {/* stocks */}
-  <Route path="/stocks">
-    <Route index element={<Stocks stocks={stocks} addToCart={this.addToCart} />} />
-    <Route path=":id" element={<StockDetail addToCart={this.addToCart} />} />
-  </Route>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/portfolio"
+            element={<Portfolio portfolioItems={portfolioItems} />}
+          />
 
-  <Route
-    path="/bonds"
-    element={<Bonds bonds={bonds} addToCart={this.addToCart} />}
-  />
-  <Route
-    path="/reits"
-    element={<Reits reits={reits} addToCart={this.addToCart} />}
-  />
-  <Route
-    path="/cart"
-    element={
-      <Cart
-        cartItems={cartItems}
-        cartCount={cartCount}
-        addToPortfolio={this.addToPortfolio}
-        resetCartCount={this.resetCartCount}
-      />
-    }
-  />
-</Routes>
+
+          {/* stocks */}
+          <Route path="/stocks">
+            <Route
+              index
+              element={<Stocks stocks={stocks} addToCart={this.addToCart} />}
+            />
+            <Route
+              path=":id"
+              element={<StockDetail addToCart={this.addToCart} />}
+            />
+          </Route>
+
+
+
+          {/* Reits */}
+
+          <Route path="/reits">
+            <Route
+              index
+              element={<Reits stocks={reits} addToCart={this.addToCart} />}
+            />
+            <Route
+              path=":id"
+              element={<ReitDetail addToCart={this.addToCart} />}
+            />
+          </Route>
+
+      {/* Ronds */}
+          {/* <Route
+            path="/bonds"
+            element={<Bonds bonds={bonds} addToCart={this.addToCart} />}
+          /> */}
+          <Route path="/bonds">
+            <Route
+              index
+              element={<Bonds stocks={bonds} addToCart={this.addToCart} />}
+            />
+            <Route
+              path=":id"
+              element={<BondDetail addToCart={this.addToCart} />}
+            />
+          </Route>
+          <Route
+            path="/cart"
+            element={
+              <Cart
+                cartItems={cartItems}
+                cartCount={cartCount}
+                addToPortfolio={this.addToPortfolio}
+                resetCartCount={this.resetCartCount}
+              />
+            }
+          />
+        </Routes>
 
         <Footer />
       </BrowserRouter>

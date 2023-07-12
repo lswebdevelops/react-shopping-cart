@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/Cart.css";
-import { Link } from "react-router-dom";
 import stocksData from "../assets/stocksData";
 import bondsData from "../assets/bondsData";
 import reitsData from "../assets/reitsData";

@@ -1,10 +1,8 @@
 import React from "react";
 import bondsData from "../assets/bondsData";
-import "../styles/Stocks.css";
 import { Link } from "react-router-dom";
-
+import "../styles/Stocks.css";
 import { FaCartArrowDown } from "react-icons/fa";
-
 
 const Bonds = (props) => {
   return (
@@ -25,10 +23,9 @@ const Bonds = (props) => {
           {bondsData.map((item) => (
             <tr className="stock-row" key={item.ticker}>
               <td>
-
-              <Link
-                to={"/individual"}>
-              <img
+              {" "}
+                <Link to={`/bonds/${item.id}`}>
+                <img
                   src={require(`../images/bonds_images/${item.ticker}.png`)}
                   alt={item.name}
                   className="stock-logo"
@@ -38,11 +35,12 @@ const Bonds = (props) => {
               <td>
                 <button
                   className="button-handleStockPurchase"
-                  onClick={() => props.addToCart(item)}>
+                  onClick={() => props.addToCart(item)}
+                >
                   <FaCartArrowDown />
                 </button>
               </td>
-              <td>{item.ticker}</td>              
+              <td>{item.ticker}</td>
               <td>{item.name}</td>
               <td>{item.price2023}</td>
               <td>${item.size} billion</td>

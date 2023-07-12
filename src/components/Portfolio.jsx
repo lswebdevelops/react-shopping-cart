@@ -57,18 +57,15 @@ const Portfolio = (props) => {
 
             return (
               <tr key={index} className="portfolio-row">
-                <Link to={"/individual"}>
-                  <td>
-                    {imageSource && (
-                      <img
-                        src={imageSource}
-                        alt={data?.name}
-                        className="stock-logo"
-                      />
-                    )}
-                  </td>
-                </Link>
-
+                <td>
+                  {imageSource && (
+                    <img
+                      src={imageSource}
+                      alt={data?.name}
+                      className="stock-logo"
+                    />
+                  )}
+                </td>
                 <td>{item.ticker}</td>
                 <td>{item.name}</td>
                 <td>${formatNumber(item.price2023)}</td>

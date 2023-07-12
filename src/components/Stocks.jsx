@@ -5,7 +5,7 @@ import "../styles/Stocks.css";
 import { FaCartArrowDown } from "react-icons/fa";
 
 const Stocks = (props) => {
-    return (
+  return (
     <div className="stocks-container">
       <h1>Stock Options</h1>
       <table className="stocks-table">
@@ -23,19 +23,20 @@ const Stocks = (props) => {
           {stocksData.map((item) => (
             <tr className="stock-row" key={item.ticker}>
               <td>
-               <Link
-                  to={`/stocks/${item.id}`}>
-               <img
-                  src={require(`../images/stocks_images/${item.ticker}.png`)}
-                  alt={item.name}
-                  className="stock-logo"
-                />
-                </Link>
+                {" "}
+                <Link to={`/stocks/${item.id}`}>
+                  <img
+                    src={require(`../images/stocks_images/${item.ticker}.png`)}
+                    alt={item.name}
+                    className="stock-logo"
+                  />
+                </Link>{" "}
               </td>
               <td>
                 <button
                   className="button-handleStockPurchase"
-                  onClick={() => props.addToCart(item)}>
+                  onClick={() => props.addToCart(item)}
+                >
                   <FaCartArrowDown />
                 </button>
               </td>
@@ -49,6 +50,6 @@ const Stocks = (props) => {
       </table>
     </div>
   );
-}
+};
 
 export default Stocks;
