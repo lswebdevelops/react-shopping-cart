@@ -2,6 +2,8 @@
 
 .cart-container {
   margin: 20px;
+  white-space: nowrap;
+  overflow: scroll;
 }
 
 .cart-table {

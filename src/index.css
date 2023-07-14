@@ -80,6 +80,8 @@
   margin: 25px 25px;
 }
 
+
+
 .home-div-container {
   display: flex;
   max-width: 1200px;
@@ -185,5 +187,8 @@ footer {
   }
   #root {
     width: 100%;
+  }
+  footer{
+    font-size: 1.4rem;;
   }
 }

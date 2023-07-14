@@ -1,7 +1,8 @@
-/* Portfolio.css */
 
 .portfolio-container {
   margin: 20px;
+  white-space: nowrap;
+  overflow: scroll;
 }
 
 .total-price-portfolio {
@@ -11,14 +12,13 @@
   margin-bottom: 20px;
 }
 
-.h1-portfolio {
-  margin: 0;
-}
+
 
 .portfolio-table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 100px;
+  
 }
 
 .portfolio-table th,

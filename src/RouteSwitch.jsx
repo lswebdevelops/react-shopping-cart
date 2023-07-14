@@ -13,7 +13,6 @@ import StockDetail from "./components/StockDetail";
 import ReitDetail from "./components/ReitDetail";
 import BondDetail from "./components/BondDetail";
 
-
 class RouteSwitch extends Component {
   constructor() {
     super();
@@ -212,7 +211,6 @@ class RouteSwitch extends Component {
             element={<Portfolio portfolioItems={portfolioItems} />}
           />
 
-
           {/* stocks */}
           <Route path="/stocks">
             <Route
@@ -224,8 +222,6 @@ class RouteSwitch extends Component {
               element={<StockDetail addToCart={this.addToCart} />}
             />
           </Route>
-
-
 
           {/* Reits */}
 
@@ -240,11 +236,8 @@ class RouteSwitch extends Component {
             />
           </Route>
 
-      {/* Ronds */}
-          {/* <Route
-            path="/bonds"
-            element={<Bonds bonds={bonds} addToCart={this.addToCart} />}
-          /> */}
+          {/* Ronds */}
+          
           <Route path="/bonds">
             <Route
               index
@@ -266,6 +259,7 @@ class RouteSwitch extends Component {
               />
             }
           />
+          <Route path="/home" element={<Home />} />
         </Routes>
 
         <Footer />
