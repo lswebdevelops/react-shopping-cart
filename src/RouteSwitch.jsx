@@ -259,7 +259,7 @@ class RouteSwitch extends Component {
               />
             }
           />
-          <Route path="/home" element={<Home />} />
+          
         </Routes>
 
         <Footer />
