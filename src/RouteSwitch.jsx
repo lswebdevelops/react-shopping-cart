@@ -185,19 +185,19 @@ class RouteSwitch extends Component {
             </span>
           </Link>
           <div className="link-containers">
-            <NavLink className="portfolio" to={"/portfolio"}>
+            <NavLink data-testid="link-0" className="portfolio" to={"/portfolio"}>
               Portfolio
             </NavLink>
-            <NavLink className="stocks" to={"/stocks"}>
+            <NavLink data-testid="link-1" className="stocks" to={"/stocks"}>
               Stocks
             </NavLink>
-            <NavLink className="reits" to={"/reits"}>
+            <NavLink    data-testid="link-2"  className="reits" to={"/reits"}>
               REITs
             </NavLink>
-            <NavLink className="bonds" to={"/bonds"}>
+            <NavLink   data-testid="link-3"   className="bonds" to={"/bonds"}>
               Bonds
             </NavLink>
-            <Link to="/cart" className="cart cart-icon">
+            <Link to="/cart" data-testid="link-cart" className="cart cart-icon">
               <FaCartArrowDown />
               {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
             </Link>
