@@ -36,7 +36,7 @@ const Portfolio = (props) => {
             <th>Ticker</th>
             <th>Type</th>
             <th>Company Name</th>
-            <th>Last Price</th>
+            <th>Total item</th>
             <th>Market Cap</th>
           </tr>
         </thead>
